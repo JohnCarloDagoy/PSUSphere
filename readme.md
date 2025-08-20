@@ -25,4 +25,5 @@ A Django-based web application for managing student information, college organiz
 
 - Developed by
   John Carlo D. Dagoy
+
   Mark Jayson D. Galarpe
