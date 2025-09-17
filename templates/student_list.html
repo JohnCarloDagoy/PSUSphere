@@ -14,9 +14,9 @@
                     <br />
                     <div class="col-md-12 row">
                         <div class="col-md-6">
-                            <form class="navbar-left navbar-form nav-search mr-md-3" action="{% url 'student-list' %}" method="get">
+                            <form class="navbar-left navbar-form nav-search mr-md-3" action="{% url 'student-list' %}">
                                 <div class="input-group">
-                                    <input type="text" name="q" placeholder="Search ..." class="form-control" value="{{ request.GET.q }}">
+                                    <input type="text" name="q" placeholder="Search ..." class="form-control" name="q" />
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i class="la la-search search-icon"></i>
@@ -50,8 +50,8 @@
                                     <td>{{ object.firstname }}</td>
                                     <td>{{ object.program }}</td>
                                     <td>
-                                        <a href="{% url 'student-edit' object.id %}">Edit</a>
-                                        <a href="{% url 'student-delete' object.id %}" class="text-danger">Delete</a>
+                                        <a href="student_list/{{ object.id }}">Edit</a>
+                                        <a href="student_list/{{ object.id }}/delete" class="text-danger">Delete</a>
                                     </td>
                                 </tr>
                                 {% empty %}
