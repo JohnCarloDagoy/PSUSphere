@@ -2,7 +2,6 @@ from django.core.management.base import BaseCommand
 from faker import Faker
 from studentorg.models import College, Program, Organization, Student, OrgMember
 
-
 class Command(BaseCommand):
     help = 'Create initial data for the application'
 
@@ -24,8 +23,7 @@ class Command(BaseCommand):
             )
 
         self.stdout.write(self.style.SUCCESS(
-            'Initial data for organization created successfully.'
-        ))
+            'Initial data for organization created successfully.'))
 
     def create_students(self, count):
         fake = Faker('en_PH')
@@ -38,8 +36,7 @@ class Command(BaseCommand):
                 program=Program.objects.order_by('?').first()
             )
         self.stdout.write(self.style.SUCCESS(
-            'Initial data for students created successfully.'
-        ))
+            'Initial data for students created successfully.'))
 
     def create_membership(self, count):
         fake = Faker()
@@ -48,9 +45,7 @@ class Command(BaseCommand):
                 student=Student.objects.order_by('?').first(),
                 organization=Organization.objects.order_by('?').first(),
                 date_joined=fake.date_between(
-                    start_date="-2y", end_date="today"
-                )
+                    start_date="-2y", end_date="today")
             )
         self.stdout.write(self.style.SUCCESS(
-            'Initial data for student organization created successfully.'
-        ))
+            'Initial data for student organization created successfully.'))
